@@ -1,50 +1,26 @@
-// export default {
-//   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
-//   colors: {
-//     background: '#235797',
-//     color: 'white',
-//   },
-//   fonts: {
-//     default: 'Open Sans',
-//   },
-//   fontWeights: {
-//     regular: 400,
-//     bold: 700,
-//   },
-// };
-
 export default {
-  breakpoints: ['40em', '52em', '64em'],
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   colors: {
-    blue: '#07c',
-    lightgray: '#f6f6ff',
+    blue: '#235797',
+    white: 'white',
+    'transparent-white': 'rgba(255, 255, 255, 0.1)',
+    'semi-transparent-white': 'rgba(255, 255, 255, 0.5)'
   },
-  space: [0, 4, 8, 16, 32, 64, 128, 256],
   fonts: {
-    body: 'system-ui, sans-serif',
-    heading: 'inherit',
-    monospace: 'Menlo, monospace',
+    default: 'Roboto'
   },
   fontWeights: {
-    body: 400,
-    heading: 700,
-    bold: 700,
+    regular: 400,
+    bold: 700
   },
   lineHeights: {
     body: 1.5,
     heading: 1.25,
+    footer: 1.5
   },
-  shadows: {
-    small: '0 0 4px rgba(0, 0, 0, .125)',
-    large: '0 0 24px rgba(0, 0, 0, .125)',
-  },
-  variants: {},
-  text: {},
-  buttons: {
-    primary: {
-      color: 'white',
-      bg: 'primary',
-    },
-  },
+  variants: {
+    link: { color: 'white', textDecoration: 'none' },
+    bold: { fontWeight: 'bold', fontSize: '14pt' },
+    normal: { fontSize: '10pt' }
+  }
 };
