@@ -1,7 +1,7 @@
 import React, { SFC, useState } from 'react';
 import { Flex, Button } from 'rebass';
 import { Input } from '@rebass/forms';
-import cookie from 'js-cookie';
+import Cookies from 'js-cookie';
 
 type LogInFormProps = {};
 
@@ -22,16 +22,15 @@ const LogInForm: SFC<LogInFormProps> = (props): JSX.Element => {
         return response.json();
       })
       .then(data => {
-        cookie.set('access-token', data['access-token'], {
-          expires: 1,
-          httpOnly: true,
-          secure: true,
-        });
-        cookie.set('refresh-token', data['refresh-token'], {
-          expires: 30,
-          httpOnly: true,
-          secure: true,
-        });
+        if (data['access-token'] && data['refresh-token']) {
+          Cookies.set('access-token', data['access-token'], {
+            expires: 1,
+          });
+          Cookies.set('refresh-token', data['refresh-token'], {
+            expires: 30,
+          });
+          window.location.reload();
+        }
       })
       .catch(error => {
         console.log(error);
