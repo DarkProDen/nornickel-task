@@ -41,7 +41,9 @@ const Footer: SFC<FooterProps> = (props): JSX.Element => {
           </Link>
         </Flex>
         <Flex width={1 / 4} flexDirection="column">
-          <Text mb="20px">Поддержка портала</Text>
+          <Link href="Support" mb="20px">
+            Поддержка портала
+          </Link>
           <Text fontWeight="bold" fontSize="12pt">
             8-800-000-01-02
           </Text>
@@ -81,9 +83,11 @@ const Footer: SFC<FooterProps> = (props): JSX.Element => {
           <Icon icon={twitter} sx={{ mr: '10%' }} />
           <Icon icon={telegram} />
         </Flex>
-        <Text width={1 / 4}>Условия пользования</Text>
+        <Link href="Conditions" width={1 / 4}>
+          Условия пользования
+        </Link>
         <Text width={1 / 4} color="semi-transparent-white">
-          2020 ООО "Единство"
+          © 2020 ООО «Единство»
         </Text>
       </Flex>
     </Box>
