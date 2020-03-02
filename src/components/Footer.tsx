@@ -7,6 +7,9 @@ import twitter from '../assets/icons/Twitter.svg';
 import telegram from '../assets/icons/Telegram.svg';
 import nornickel from '../assets/images/Nornickel.png';
 import Icon from './Icon';
+import FooterCell from './FooterCell';
+import Separator from './Separator';
+import FooterRow from './FooterRow';
 
 type FooterProps = {};
 
@@ -23,32 +26,25 @@ const Footer: SFC<FooterProps> = (props): JSX.Element => {
         px: '5%',
       }}
     >
-      <Flex width={1} py="30px">
-        <Text width={1 / 4} fontWeight="bold" fontSize="12pt">
-          Смарт Норильск
-        </Text>
-        <Flex
-          width={1 / 4}
-          flexDirection="column"
-          alignItems="flex-start"
-          sx={{ '& a': { mb: '20px' } }}
-        >
+      <FooterRow sx={{ py: 30 }}>
+        <FooterCell sx={{ fontWeight: 'bold', fontSize: '12pt' }}>Смарт Норильск</FooterCell>
+        <FooterCell sx={{ '& a': { mb: '20px' } }}>
           <Link href="News">Новости</Link>
           <Link href="Home">Афиша</Link>
           <Link href="Services">Услуги</Link>
           <Link href="Contacts" sx={{ mb: '0 !important' }}>
             Контакты
           </Link>
-        </Flex>
-        <Flex width={1 / 4} flexDirection="column">
+        </FooterCell>
+        <FooterCell>
           <Link href="Support" mb="20px">
             Поддержка портала
           </Link>
-          <Text fontWeight="bold" fontSize="12pt">
+          <Link href="Phone" sx={{ fontWeight: 'bold', fontSize: '12pt' }}>
             8-800-000-01-02
-          </Text>
-        </Flex>
-        <Flex width={1 / 4} as="form" flexDirection="column">
+          </Link>
+        </FooterCell>
+        <FooterCell as="form">
           <Label htmlFor="email" mb="20px">
             Подпишитесь на рассылку портала
           </Label>
@@ -61,32 +57,42 @@ const Footer: SFC<FooterProps> = (props): JSX.Element => {
               sx={{
                 bg: 'transparent-white',
                 border: 0,
+                pr: 36,
                 '&::placeholder': { color: 'semi-transparent-white' },
               }}
             />
-            <Icon icon={vector} sx={{ ml: '-35px' }}></Icon>
+            <Icon href="Subscribe" icon={vector} sx={{ ml: '-33px' }}></Icon>
           </Flex>
           <Text color="semi-transparent-white">Рассылка не содержит рекламных материалов</Text>
-        </Flex>
-      </Flex>
-      <Box width={1} height="2px" bg="transparent-white" />
-      <Flex width={1} alignItems="center" py="10px">
-        <Flex width={1 / 4} alignItems="center" sx={{ fontWeight: 'bold' }}>
+        </FooterCell>
+      </FooterRow>
+      <Separator />
+      <FooterRow sx={{ alignItems: 'center', py: 10 }}>
+        <FooterCell
+          sx={{
+            fontWeight: 'bold',
+            alignItems: 'center !important',
+            flexDirection: 'row !important',
+          }}
+        >
           <Image src={nornickel} minWidth="38px" mr="5%" />
           НОРНИКЕЛЬ
-        </Flex>
-        <Flex width={1 / 4} alignItems="center">
-          <Icon icon={instagram} sx={{ ml: '-7px', mr: '10%' }} />
-          <Icon icon={twitter} sx={{ mr: '10%' }} />
-          <Icon icon={telegram} />
-        </Flex>
-        <Link href="Conditions" width={1 / 4}>
-          Условия пользования
-        </Link>
-        <Text width={1 / 4} color="semi-transparent-white">
-          © 2020 ООО «Единство»
-        </Text>
-      </Flex>
+        </FooterCell>
+        <FooterCell sx={{ alignItems: 'center !important', flexDirection: 'row !important' }}>
+          <Icon
+            target="_blank"
+            href="https://www.instagram.com/"
+            icon={instagram}
+            sx={{ ml: '-7px', mr: '10%' }}
+          />
+          <Icon target="_blank" href="https://twitter.com/" icon={twitter} sx={{ mr: '10%' }} />
+          <Icon target="_blank" href="https://telegram.org/" icon={telegram} />
+        </FooterCell>
+        <FooterCell>
+          <Link href="Conditions">Условия пользования</Link>
+        </FooterCell>
+        <FooterCell sx={{ color: 'semi-transparent-white' }}>© 2020 ООО «Единство»</FooterCell>
+      </FooterRow>
     </Box>
   );
 };

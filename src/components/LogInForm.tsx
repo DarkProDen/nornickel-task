@@ -1,21 +1,73 @@
-import React, { SFC } from 'react';
+import React, { SFC, useState } from 'react';
 import { Flex, Button } from 'rebass';
 import { Input } from '@rebass/forms';
+import cookie from 'js-cookie';
 
 type LogInFormProps = {};
 
 const LogInForm: SFC<LogInFormProps> = (props): JSX.Element => {
+  const submitHandler = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const data = {
+      username: username,
+      password: password,
+    };
+
+    fetch('http://www.mocky.io/v2/5e5d22d1320000c1f443c6b9', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        cookie.set('access-token', data['access-token'], {
+          expires: 1,
+          httpOnly: true,
+          secure: true,
+        });
+        cookie.set('refresh-token', data['refresh-token'], {
+          expires: 30,
+          httpOnly: true,
+          secure: true,
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
   return (
     <Flex
+      onSubmit={submitHandler}
       as="form"
       width={1}
       flexDirection="column"
       alignItems="center"
       sx={{ p: 30, '& input': { mb: 20, maxWidth: 300 } }}
     >
-      <Input id="login" name="login" type="login" placeholder="Логин"></Input>
-      <Input id="password" name="password" type="password" placeholder="Пароль"></Input>
-      <Button color="black" sx={{ border: '1px solid black', width: 'fit-content' }}>
+      <Input
+        id="username"
+        name="username"
+        placeholder="Логин"
+        onChange={event => {
+          setUsername(event.target.value);
+        }}
+      ></Input>
+      <Input
+        id="password"
+        name="password"
+        type="password"
+        placeholder="Пароль"
+        onChange={event => {
+          setPassword(event.target.value);
+        }}
+      ></Input>
+      <Button type="submit" color="black" sx={{ border: '1px solid black', width: 'fit-content' }}>
         Войти
       </Button>
     </Flex>
