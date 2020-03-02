@@ -1,11 +1,11 @@
 import React, { SFC } from 'react';
 import { Flex, Box, Text, Link, Image } from 'rebass';
 import { Label, Input } from '@rebass/forms';
-import vector from '../assests/icons/Vector.svg';
-import instagram from '../assests/icons/Instagram.svg';
-import twitter from '../assests/icons/Twitter.svg';
-import telegram from '../assests/icons/Telegram.svg';
-import nornickel from '../assests/images/Nornickel.png';
+import vector from '../assets/icons/Vector.svg';
+import instagram from '../assets/icons/Instagram.svg';
+import twitter from '../assets/icons/Twitter.svg';
+import telegram from '../assets/icons/Telegram.svg';
+import nornickel from '../assets/images/Nornickel.png';
 import Icon from './Icon';
 
 type FooterProps = {};
@@ -20,7 +20,7 @@ const Footer: SFC<FooterProps> = (props): JSX.Element => {
         fontFamily: 'default',
         fontSize: '10pt',
         lineHeight: 'footer',
-        px: '5%'
+        px: '5%',
       }}
     >
       <Flex width={1} py="30px">
@@ -62,14 +62,12 @@ const Footer: SFC<FooterProps> = (props): JSX.Element => {
                 bg: 'transparent-white',
                 border: 0,
                 borderRadius: 5,
-                '&::placeholder': { color: 'semi-transparent-white' }
+                '&::placeholder': { color: 'semi-transparent-white' },
               }}
             />
             <Icon icon={vector} sx={{ ml: '-35px' }}></Icon>
           </Flex>
-          <Text color="semi-transparent-white">
-            Рассылка не содержит рекламных материалов
-          </Text>
+          <Text color="semi-transparent-white">Рассылка не содержит рекламных материалов</Text>
         </Flex>
       </Flex>
       <Box width={1} height="2px" bg="transparent-white" />

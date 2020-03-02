@@ -4,23 +4,23 @@ export default {
     blue: '#235797',
     white: 'white',
     'transparent-white': 'rgba(255, 255, 255, 0.1)',
-    'semi-transparent-white': 'rgba(255, 255, 255, 0.5)'
+    'semi-transparent-white': 'rgba(255, 255, 255, 0.5)',
   },
   fonts: {
-    default: 'Roboto'
+    default: 'Roboto',
   },
   fontWeights: {
     regular: 400,
-    bold: 700
+    bold: 700,
   },
   lineHeights: {
     body: 1.5,
     heading: 1.25,
-    footer: 1.5
+    footer: 1.5,
   },
   variants: {
     link: { color: 'white', textDecoration: 'none' },
     bold: { fontWeight: 'bold', fontSize: '14pt' },
-    normal: { fontSize: '10pt' }
-  }
+    normal: { fontSize: '10pt' },
+  },
 };

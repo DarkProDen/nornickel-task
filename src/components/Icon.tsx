@@ -15,7 +15,7 @@ const Icon: SFC<IconProps> = (props): JSX.Element => {
         backgroundImage: `url(${props.icon})`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
       }}
       sx={props.sx}
     />
