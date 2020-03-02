@@ -14,10 +14,10 @@ const Footer: SFC<FooterProps> = (props): JSX.Element => {
   return (
     <Box
       as="footer"
+      width={1}
       sx={{
         bg: 'blue',
         color: 'white',
-        fontFamily: 'default',
         fontSize: '10pt',
         lineHeight: 'footer',
         px: '5%',
@@ -61,7 +61,6 @@ const Footer: SFC<FooterProps> = (props): JSX.Element => {
               sx={{
                 bg: 'transparent-white',
                 border: 0,
-                borderRadius: 5,
                 '&::placeholder': { color: 'semi-transparent-white' },
               }}
             />
