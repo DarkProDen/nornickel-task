@@ -2,10 +2,15 @@ import React, { SFC, useState } from 'react';
 import { Flex, Button } from 'rebass';
 import { Input } from '@rebass/forms';
 import Cookies from 'js-cookie';
+import { useHistory } from 'react-router-dom';
 
 type LogInFormProps = {};
 
 const LogInForm: SFC<LogInFormProps> = (props): JSX.Element => {
+  const history = useHistory();
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
 
@@ -29,16 +34,13 @@ const LogInForm: SFC<LogInFormProps> = (props): JSX.Element => {
           Cookies.set('refresh-token', data['refresh-token'], {
             expires: 30,
           });
-          window.location.reload();
+          history.push('/Protected');
         }
       })
       .catch(error => {
         console.log(error);
       });
   };
-
-  const [username, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
 
   return (
     <Flex
