@@ -1,12 +1,13 @@
 import React, { SFC } from 'react';
-import Footer from './components/Footer';
 import { ThemeProvider } from 'emotion-theming';
 import mainTheme from './themes/main';
-import LogInForm from './components/LogInForm';
 import { Flex } from 'rebass';
-import ProtectedPage from './components/ProtectedPage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import PrivateRoute from './components/PrivateRoute';
+import LogInForm from './components/LogInForm';
+import ProtectedPage from './components/ProtectedPage';
+import Footer from './components/Footer';
 
 interface IAppProps {}
 
