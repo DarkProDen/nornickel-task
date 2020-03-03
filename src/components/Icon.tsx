@@ -7,24 +7,22 @@ interface IconProps extends SxProps {
   target?: string;
 }
 
-const Icon: SFC<IconProps> = (props): JSX.Element => {
-  return (
-    <Link
-      href={props.href}
-      target={props.target}
-      css={{
-        padding: '0',
-        width: '30px',
-        height: '30px',
-        backgroundImage: `url(${props.icon})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center center',
-        backgroundColor: 'transparent',
-        cursor: 'pointer',
-      }}
-      sx={props.sx}
-    />
-  );
-};
+const Icon: SFC<IconProps> = (props): JSX.Element => (
+  <Link
+    href={props.href}
+    target={props.target}
+    css={{
+      padding: '0',
+      width: '30px',
+      height: '30px',
+      backgroundImage: `url(${props.icon})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center',
+      backgroundColor: 'transparent',
+      cursor: 'pointer',
+    }}
+    sx={props.sx}
+  />
+);
 
 export default Icon;

@@ -5,12 +5,10 @@ interface FooterRowProps extends SxProps {
   as?: React.ElementType;
 }
 
-const FooterRow: SFC<PropsWithChildren<FooterRowProps>> = (props): JSX.Element => {
-  return (
-    <Flex width={1} as={props.as} sx={props.sx}>
-      {props.children}
-    </Flex>
-  );
-};
+const FooterRow: SFC<PropsWithChildren<FooterRowProps>> = (props): JSX.Element => (
+  <Flex width={1} as={props.as} sx={props.sx}>
+    {props.children}
+  </Flex>
+);
 
 export default FooterRow;
